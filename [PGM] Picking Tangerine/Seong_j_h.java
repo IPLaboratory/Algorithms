@@ -5,13 +5,13 @@ public class Seong_j_h {
         int answer = 0;
         ArrayList<Integer> tan = new ArrayList<Integer>();
         ArrayList<Integer> freq = new ArrayList<Integer>();
-        for(int i : tangerine){
-            if(tan.contains(i)){
-                int index = tan.indexOf(i);
+        for(int t : tangerine){
+            if(tan.contains(t)){
+                int index = tan.indexOf(t);
                 freq.set(index, freq.get(index) + 1);
             }
             else { 
-                tan.add(i);
+                tan.add(t);
                 freq.add(1);
             }
         }
