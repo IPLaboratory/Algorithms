@@ -13,19 +13,14 @@ func solution(_ cap: Int, _ n: Int, _ deliveries: [Int], _ pickups: [Int]) -> In
     var pickupCount = 0
     
     for i in stride(from: n - 1, through: 0, by: -1) {
-        if deliveries[i] == 0 && pickups[i] == 0 {
-            continue
-        }
+        if deliveries[i] == 0 && pickups[i] == 0 { continue }
         
-        var times = 0
-        while deliveryCount < deliveries[i] || pickupCount < pickups[i] {
-            times += 1
-            deliveryCount += cap
-            pickupCount += cap
-        }
+        let deliveryTimes = Int(ceil(Double(deliveries[i] - deliveryCount) / Double(cap)))
+        let pickupTimes = Int(ceil(Double(pickups[i] - pickupCount) / Double(cap)))
+        let times = max(deliveryTimes, pickupTimes)
         
-        deliveryCount -= deliveries[i]
-        pickupCount -= pickups[i]
+        deliveryCount = cap * times + deliveryCount - deliveries[i]
+        pickupCount = cap * times + pickupCount - pickups[i]
         answer += (i + 1) * times
     }
     
