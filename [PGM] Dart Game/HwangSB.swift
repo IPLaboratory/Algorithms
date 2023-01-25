@@ -15,12 +15,12 @@ func solution(_ dartResult: String) -> Int {
             scores[index] *= scores[index] * scores[index]
             index += 1
         case "*":
-            scores[index-1] *= 2
+            scores[index - 1] *= 2
             if index >= 2 {
-                scores[index-2] *= 2
+                scores[index - 2] *= 2
             }
         case "#":
-            scores[index-1] *= -1
+            scores[index - 1] *= -1
         default:
             if scores[index] != 0 {
                 scores[index] = 10
@@ -30,5 +30,5 @@ func solution(_ dartResult: String) -> Int {
         }
     }
     
-    return scores.reduce(0) {$0 + $1}
+    return scores.reduce(0) { $0 + $1 }
 }
