@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(String dartResult) {
         int answer = 0;
